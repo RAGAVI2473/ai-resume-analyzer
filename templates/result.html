@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SmartHire - Resume Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <div class="navbar">
+
+        <h2>SmartHire</h2>
+
+        <div>
+
+            <span>
+                Hi, {{ session["user_name"] }} 👋
+            </span>
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================
+         PAGE HEADER
+    ================================= -->
+
+    <div class="dashboard-card">
+
+        <h1>Resume Analysis 🤖</h1>
+
+        <p>
+            Your resume has been analyzed using
+            intelligent skill extraction and
+            AI-based job matching.
+        </p>
+
+    </div>
+
+
+    <!-- ================================
+         RESUME SCORE
+    ================================= -->
+
+    <div class="score-card">
+
+        <h2>Resume Score</h2>
+
+        <div class="score">
+
+            {{ resume_score }}%
+
+        </div>
+
+        <p>
+            Overall skill coverage detected
+            in your resume.
+        </p>
+
+    </div>
+
+
+    <!-- ================================
+         DETECTED SKILLS
+    ================================= -->
+
+    <div class="card">
+
+        <h2>🧠 Detected Skills</h2>
+
+        <p>
+            Skills identified from your resume:
+        </p>
+
+
+        {% if skills %}
+
+        <div class="skills">
+
+            {% for skill in skills %}
+
+                <span>
+                    {{ skill }}
+                </span>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <p>
+            No known skills were detected.
+        </p>
+
+        {% endif %}
+
+    </div>
+
+
+    <!-- ================================
+         JOB RECOMMENDATIONS
+    ================================= -->
+
+    <div class="card">
+
+        <h2>💼 Recommended Jobs</h2>
+
+        <p>
+            Jobs that best match your resume:
+        </p>
+
+    </div>
+
+
+    {% for job in recommendations %}
+
+    <div class="job-card">
+
+        <!-- Job title -->
+
+        <h2>
+            {{ job.title }}
+        </h2>
+
+
+        <!-- Company -->
+
+        <h3>
+            🏢 {{ job.company }}
+        </h3>
+
+
+        <!-- Match score -->
+
+        <div class="match">
+
+            🎯 Match Score:
+
+            <strong>
+                {{ job.score }}%
+            </strong>
+
+        </div>
+
+
+        <!-- Required skills -->
+
+        <p>
+            <strong>
+                Required Skills:
+            </strong>
+        </p>
+
+        <div class="skills">
+
+            {% for skill in job.skills.split(",") %}
+
+                <span>
+                    {{ skill.strip() }}
+                </span>
+
+            {% endfor %}
+
+        </div>
+
+
+        <!-- Matched skills -->
+
+        <p>
+            <strong>
+                ✅ Your Matching Skills:
+            </strong>
+        </p>
+
+        {% if job.matched %}
+
+        <div class="skills">
+
+            {% for skill in job.matched %}
+
+                <span>
+                    {{ skill }}
+                </span>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <p>
+            No matching skills found.
+        </p>
+
+        {% endif %}
+
+
+        <!-- Missing skills -->
+
+        <p>
+            <strong>
+                ⚠️ Skills You Should Learn:
+            </strong>
+        </p>
+
+        {% if job.missing %}
+
+        <div class="missing">
+
+            {% for skill in job.missing %}
+
+                <span>
+                    {{ skill }}
+                </span>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <p>
+            🎉 You have all the required skills!
+        </p>
+
+        {% endif %}
+
+    </div>
+
+    {% endfor %}
+
+
+    <!-- ================================
+         ACTION BUTTONS
+    ================================= -->
+
+    <div class="card"
+         style="text-align: center;">
+
+        <h2>
+            🚀 Continue Your Career Journey
+        </h2>
+
+        <p>
+            Improve your missing skills and
+            increase your job match score.
+        </p>
+
+        <br>
+
+        <a href="/dashboard"
+           class="back">
+
+            🔄 Analyze Another Resume
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
