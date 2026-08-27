@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>SmartHire Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="navbar">
+
+        <h2>SmartHire</h2>
+
+        <div>
+
+            <span>
+                Hi, {{ name }} 👋
+            </span>
+
+            <a href="/logout">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+        <h1>AI Resume Analyzer</h1>
+
+        <p>
+            Upload your resume and let SmartHire
+            analyze your skills and recommend
+            suitable job roles.
+        </p>
+
+
+        <form action="/analyze"
+              method="POST"
+              enctype="multipart/form-data">
+
+            <label>
+                Upload Resume PDF
+            </label>
+
+            <input
+                type="file"
+                name="resume"
+                accept=".pdf"
+                required
+            >
+
+            <button type="submit">
+                Analyze My Resume 🚀
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+
+            <h3>📄 Resume Analysis</h3>
+
+            <p>
+                Extract skills from your resume.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>🤖 AI Job Matching</h3>
+
+            <p>
+                Find jobs based on your resume.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>📊 Skill Gap</h3>
+
+            <p>
+                Identify missing skills.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
