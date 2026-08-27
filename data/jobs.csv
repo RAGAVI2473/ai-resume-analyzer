@@ -1,0 +1,9 @@
+job_id,title,company,skills,description
+1,Python Developer,TCS,"Python,Django,SQL,REST API,Git","Develop backend applications using Python and Django"
+2,Data Analyst,Infosys,"Python,SQL,Pandas,NumPy,Excel,Power BI","Analyze business data and create reports"
+3,Machine Learning Engineer,Zoho,"Python,Machine Learning,Scikit-learn,Pandas,NumPy,SQL","Build and deploy machine learning models"
+4,Full Stack Developer,Cognizant,"Python,Django,HTML,CSS,JavaScript,SQL,Git","Develop full stack web applications"
+5,Backend Developer,Accenture,"Python,Flask,REST API,SQL,Git,Docker","Build scalable backend APIs"
+6,Data Scientist,IBM,"Python,Machine Learning,Pandas,NumPy,SQL,Statistics","Develop predictive analytics solutions"
+7,Web Developer,Wipro,"HTML,CSS,JavaScript,Python,Flask,SQL","Develop responsive web applications"
+8,AI Engineer,Microsoft,"Python,Machine Learning,Deep Learning,TensorFlow,PyTorch","Develop artificial intelligence solutions"
