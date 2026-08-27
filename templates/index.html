@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartHire - AI Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>SmartHire</h1>
+
+            <h2>AI-Powered Resume Analyzer</h2>
+
+            <p>
+                Upload your resume to analyze your skills,
+                calculate your resume score and find suitable jobs.
+            </p>
+
+            <form action="/analyze"
+                  method="POST"
+                  enctype="multipart/form-data">
+
+                <label for="resume">
+                    Upload Your Resume
+                </label>
+
+                <input
+                    type="file"
+                    id="resume"
+                    name="resume"
+                    accept=".pdf"
+                    required
+                >
+
+                <button type="submit">
+                    Analyze Resume
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
